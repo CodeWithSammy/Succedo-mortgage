@@ -4,13 +4,17 @@ import "./hero.css";
 
 const Hero = () => {
   const [showYellowContainer, setShowYellowContainer] = useState(false);
+  const [currentTextIndex, setCurrentTextIndex] = useState(0);
+  const texts = [
+    "Maximize Your Financial Potential",
+    "Realize Your Homeownership Dreams",
+    "Navigate Towards Financial Freedom"
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-
-      // Adjust this value to determine when to show/hide .yellow-container
-      const scrollThreshold = 100; // Example threshold, adjust as needed
+      const scrollThreshold = 100; 
 
       if (scrollPosition > scrollThreshold && !showYellowContainer) {
         setShowYellowContainer(true);
@@ -26,11 +30,30 @@ const Hero = () => {
     };
   }, [showYellowContainer]);
 
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentTextIndex((prevIndex) => (prevIndex + 1) % texts.length);
+    }, 2000); // Change text every 4 seconds for quicker transitions
+  
+    return () => clearInterval(intervalId);
+  }, [texts.length]);
+  
+
   return (
     <section className="hero">
       <div className="container">
         <div className="hero-content">
           <Heading title="YOUR SUCCESS IS OUR PRIORITY" />
+          <div className="flip-text">
+            {texts.map((text, index) => (
+              <h2
+                key={index}
+                className={index === currentTextIndex ? "" : "hidden"}
+              >
+                {text}
+              </h2>
+            ))}
+          </div>
           <div className="buttons">
             <a
               href="https://2584954.my1003app.com/2085367/inquiry"
