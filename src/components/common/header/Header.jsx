@@ -29,7 +29,7 @@ const Header = () => {
   // }, []);
 
   return (
-    <header className={ "header  header__middle"}>
+    <header className={"header  header__middle"}>
       <div className="header__middle__logo">
         <NavLink exact activeClassName="is-active" to="/">
           <img src={logo} alt="logo" />
@@ -57,6 +57,11 @@ const Header = () => {
           <li className="menu-item">
             <NavLink activeClassName="is-active" to="/About">
               About Us
+            </NavLink>
+          </li>
+          <li className="menu-item">
+            <NavLink activeClassName="is-active" to="/team">
+             Team
             </NavLink>
           </li>
           <li
@@ -164,7 +169,7 @@ const Header = () => {
           <li className="menu-item">
             <a href="tel: 8328886368" className="phone-icon">
               <FiPhone />
-               (832) 888-6368
+              (832) 888-6368
             </a>
           </li>
         </ul>
