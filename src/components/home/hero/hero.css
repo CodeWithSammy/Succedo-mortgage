@@ -51,7 +51,7 @@
   border-top-left-radius: 100%;
   border-top-right-radius: 100%;
   overflow: hidden; /* Hide the bottom part of the container */
-  margin-top: -100px; /* Optional: adjust margin as needed */
+  margin-top: -110px; /* Optional: adjust margin as needed */
   transform: translateY(100%); /* Initial position shifted down */
  
  

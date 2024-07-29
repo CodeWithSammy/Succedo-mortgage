@@ -41,7 +41,7 @@ const Hero = () => {
             >
               <button className="btn">Apply Now</button>
             </a>
-            <button className="btn">Request a Call</button>
+            <button className="btn">Request a call</button>
           </div>
           <div className="moving-yellow-container">
             <div className="hero-text">
