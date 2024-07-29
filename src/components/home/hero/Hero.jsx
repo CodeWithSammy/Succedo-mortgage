@@ -3,7 +3,6 @@ import Heading from "../../common/Heading";
 import "./hero.css";
 
 const Hero = () => {
-  const [showYellowContainer, setShowYellowContainer] = useState(false);
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const texts = [
     "Maximize Your Financial Potential",
@@ -12,36 +11,16 @@ const Hero = () => {
   ];
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const scrollThreshold = 100; 
-
-      if (scrollPosition > scrollThreshold && !showYellowContainer) {
-        setShowYellowContainer(true);
-      } else if (scrollPosition <= scrollThreshold && showYellowContainer) {
-        setShowYellowContainer(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [showYellowContainer]);
-
-  useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentTextIndex((prevIndex) => (prevIndex + 1) % texts.length);
-    }, 2000); // Change text every 4 seconds for quicker transitions
+    }, 2000); // Change text every 2 seconds for quicker transitions
   
     return () => clearInterval(intervalId);
   }, [texts.length]);
-  
 
   return (
     <section className="hero">
-      <div className="container">
+      <div className="container"> 
         <div className="hero-content">
           <Heading title="YOUR SUCCESS IS OUR PRIORITY" />
           <div className="flip-text">
@@ -64,7 +43,7 @@ const Hero = () => {
             </a>
             <button className="btn">Request a Call</button>
           </div>
-          <div className={`moving-yellow-container ${showYellowContainer ? 'show' : ''}`}>
+          <div className="moving-yellow-container">
             <div className="hero-text">
               <h1>Flexible Home Financing Options For Every Buyer</h1>
               <p>
